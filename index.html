@@ -30,6 +30,8 @@
         <li><a href="#" ng-click="theme = 'danger'"><div class="color-square" style="background-color: #D9534F;"></div></a></li>
       </ul>
 
+      <input type="submit" ng-click="getRates('CNY')" value="Click to find out!">
+
       <select class="btn btn-{{ theme }}" id="currency-select" ng-model="currencies[0]" ng-options="currency for currency in currencies"></select>
 
       <table class="table">
