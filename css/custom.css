@@ -1,3 +1,63 @@
 body {
   padding-top: 10px;
 }
+
+.table td {
+ text-align: center;   
+}
+
+.table th {
+ text-align: center;   
+}
+
+@media (min-width: 1200px) {
+.container {
+  width: 80%;
+  margin-left: 10%;
+}
+}
+
+.container {
+font-size: 80%;
+}
+
+@media (min-width: 280px) {
+.container {
+  font-size: 100%;
+}
+}
+
+@media (min-width: 400px) {
+.container {
+  font-size: 120%;
+}
+}
+
+.table .info {
+ background-color: #D9EDF7;
+}
+
+.row select optgroup option{
+font-size: 200%;
+
+}
+
+select#currency-select {
+-webkit-appearance: none;
+font-size: 160%;
+margin: 40px auto;
+font-weight: bold;
+width: 100%;
+margin-top: 60px;
+}
+
+.pagination li a {
+padding: 4px 4px;
+
+}
+
+.pagination li a .color-square {
+width: 30px;
+height: 30px;
+
+}
