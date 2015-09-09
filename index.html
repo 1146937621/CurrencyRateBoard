@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Currency Rate Board">
+    <meta name="author" content="Antoine Dahan">
     <link rel="icon" href="">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>Currency Board</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -21,8 +21,8 @@
 
   <body>
 
-    <div class="container" ng-app="app" ng-controller="main" ng-init="theme='info'">
-      
+    <div class="container" ng-app="app" ng-controller="main" ng-init="theme='info'; setCurrencyList()">
+        
       <ul class="pagination">
         <li><a href="#" ng-click="theme = 'success'"><div style="background-color: #5CB85C;" class="color-square"></div></a></li>
         <li><a href="#" ng-click="theme = 'info'"><div class="color-square" style="background-color: #5BC0DE;"></div></a></li>
@@ -30,11 +30,14 @@
         <li><a href="#" ng-click="theme = 'danger'"><div class="color-square" style="background-color: #D9534F;"></div></a></li>
       </ul>
 
-      <input type="submit" ng-click="getRates('CNY')" value="Click to find out!">
+      <!--<div class="jumbotron" ngShow="isNewToPage == true">
+         <h1>Currency Board</h1>
+         <p>A currency board I build when toning my Angular.js skills. Select any currency from the dropdown to view how much 1 unit of that currency will buy you in a basket of other currencies.</p>
+      </div>-->
 
-      <select class="btn btn-{{ theme }}" id="currency-select" ng-model="currencies[0]" ng-options="currency for currency in currencies"></select>
+      <select class="btn btn-{{ theme }}" id="currency-select" ng-model="baseSelection" ng-options="currency for currency in currencies"><option  value="" disabled selected>Select a Currency</option></select>
 
-      <table class="table">
+      <table class="table" ng-show="rates.length > 0">
         <thead>
           <tr>
             <th>Name</th>
@@ -55,6 +58,21 @@
         </tr>
         </tbody>
       </table>
+
+      <footer ng-show="rates.length > 0" style="margin-bottom: 90px;">
+        <div class="row" style="font-size: 80%;">
+            <div class="col-lg-6">
+                <span class="text-{{ theme }}">
+                    Data provided by <a class="text-{{ theme }}" href="http://fixer.io/">fixer.io</a>
+                </span>
+            </div>
+            <div class="col-lg-6">
+                <span class="text-{{ theme }}">
+                    © <a class="text-{{ theme }}" href="http://www.antoinedahan.com">Antoine Dahan</a> 2015
+                </span>
+            </div>
+        </div>
+    </footer>
 
     </div><!-- /.container -->
 
